@@ -9,5 +9,5 @@ enum WineType: string
   case ROSE = 'Rosé';
   case CHAMPAGNE = 'Champagne';
   case SPIRITUEUX = 'Spiritueux';
-  case AUTRE = 'Autres';
+  case AUTRE = 'Autre';
 }

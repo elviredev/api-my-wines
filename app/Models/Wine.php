@@ -8,11 +8,14 @@ use Database\Factories\WineFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\Attributes\Sluggable;
 
 #[Fillable(['name', 'vintage', 'grape', 'country', 'region', 'description', 'appellation', 'slug', 'domain', 'wine_type', 'price', 'seller', 'purchase_date',
   'rating', 'buy_again', 'is_opened', 'favorite', 'image_path', 'nose', 'palate', 'pairings'])]
+#[Sluggable(from: ['name', 'vintage'], to: 'slug', onUpdate: false)]
 class Wine extends Model
 {
+
   /** @use HasFactory<WineFactory> */
   use HasFactory;
 
@@ -30,4 +33,5 @@ class Wine extends Model
       'rating' => 'decimal:1',
     ];
   }
+
 }
