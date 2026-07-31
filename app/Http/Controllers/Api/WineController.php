@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreWineRequest;
+use App\Http\Requests\UpdateWineRequest;
+use App\Http\Resources\WineResource;
+use App\Models\Wine;
 use Illuminate\Http\Request;
 
 class WineController extends Controller
@@ -10,40 +14,60 @@ class WineController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
+  public function index(Request $request)
   {
-    //
+    $request->validate([
+      'per_page' => ['sometimes', 'integer', 'in:8,18,50,100'],
+      'page' => ['sometimes', 'integer', 'min:1'],
+    ]);
+
+    // choix dans la homepage pour choisir le nb de vins à afficher
+    $perPage = $request->integer('per_page', 8);
+
+
+    return WineResource::collection(
+      Wine::query()
+        ->latest()
+        ->paginate($perPage)
+        ->withQueryString()
+    );
   }
 
   /**
    * Store a newly created resource in storage.
    */
-  public function store(Request $request)
+  public function store(StoreWineRequest $request): WineResource
   {
-    //
+    $wine = Wine::create($request->validated());
+
+    return new WineResource($wine);
   }
 
   /**
    * Display the specified resource.
    */
-  public function show(string $id)
+  public function show(Wine $wine): WineResource
   {
-    //
+    return new WineResource($wine);
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, string $id)
+  public function update(UpdateWineRequest $request, Wine $wine): WineResource
   {
-    //
+    $wine->update($request->validated());
+
+    return new WineResource($wine);
   }
 
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(string $id)
+  public function destroy(Wine $wine)
   {
-    //
+    $wine->delete();
+
+    return response()->noContent();
   }
 }

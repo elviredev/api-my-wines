@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use App\Enums\WineRegion;
 use App\Enums\WineType;
 use App\Models\Wine;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class WineSeeder extends Seeder
 {
@@ -197,7 +195,7 @@ class WineSeeder extends Seeder
         'price' => 23,
         'seller' => 'Carrefour',
         'purchase_date' => '2025-07-18',
-        'rating' => 17,
+        'rating' => 12.5,
         'favorite' => false,
         'buy_again' => true,
         'is_opened' => true,
@@ -260,7 +258,7 @@ class WineSeeder extends Seeder
         'price' => 24,
         'seller' => 'Carrefour',
         'purchase_date' => '2025-06-21',
-        'rating' => 17,
+        'rating' => 17.5,
         'favorite' => false,
         'buy_again' => true,
         'is_opened' => true,

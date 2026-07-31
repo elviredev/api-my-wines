@@ -29,7 +29,7 @@ return new class extends Migration {
       $table->string('seller')->nullable();
       $table->date('purchase_date')->nullable();
 
-      $table->decimal('rating', 4, 1)->nullable();
+      $table->decimal('rating', 3, 1)->nullable();
       $table->boolean('favorite')->default(false);
       $table->boolean('buy_again')->nullable();
       $table->boolean('is_opened')->default(false);

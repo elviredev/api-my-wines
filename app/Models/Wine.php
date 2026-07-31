@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\Attributes\Sluggable;
 
+
 #[Fillable(['name', 'vintage', 'grape', 'country', 'region', 'description', 'appellation', 'slug', 'domain', 'wine_type', 'price', 'seller', 'purchase_date',
   'rating', 'buy_again', 'is_opened', 'favorite', 'image_path', 'nose', 'palate', 'pairings'])]
 #[Sluggable(from: ['name', 'vintage'], to: 'slug', onUpdate: false)]
@@ -32,6 +33,12 @@ class Wine extends Model
       'price' => 'decimal:2',
       'rating' => 'decimal:1',
     ];
+  }
+
+  // Indiquer au modèle que le binding doit se faire sur le slug
+  public function getRouteKeyName(): string
+  {
+    return 'slug';
   }
 
 }
