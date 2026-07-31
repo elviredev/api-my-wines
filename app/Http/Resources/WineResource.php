@@ -42,7 +42,7 @@ class WineResource extends JsonResource
 
       'favorite' => $this->favorite,
       'buy_again' => $this->buy_again,
-      'is_opened' => $this->is_opened,
+      'available' => $this->available,
 
       'description' => $this->description,
       'nose' => $this->nose,

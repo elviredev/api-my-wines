@@ -34,7 +34,7 @@ class UpdateWineRequest extends FormRequest
       'region' => ['nullable', new Enum(WineRegion::class)],
       'grape' => ['nullable', 'string', 'max:255'],
 
-      'vintage' => ['required', 'integer', 'min:1900', 'max:' . now()->year],
+      'vintage' => ['required', 'integer', 'min:1900', 'max:' . (now()->year + 1)],
       'wine_type' => ['required', new Enum(WineType::class)],
 
       'price' => ['nullable', 'numeric', 'min:0'],
@@ -45,7 +45,7 @@ class UpdateWineRequest extends FormRequest
 
       'favorite' => ['required', 'boolean'],
       'buy_again' => ['nullable', 'boolean'],
-      'is_opened' => ['required', 'boolean'],
+      'available' => ['required', 'boolean'],
 
       'description' => ['nullable', 'string'],
       'nose' => ['nullable', 'string'],

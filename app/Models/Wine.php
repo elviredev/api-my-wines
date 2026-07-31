@@ -12,7 +12,7 @@ use Spatie\Sluggable\Attributes\Sluggable;
 
 
 #[Fillable(['name', 'vintage', 'grape', 'country', 'region', 'description', 'appellation', 'slug', 'domain', 'wine_type', 'price', 'seller', 'purchase_date',
-  'rating', 'buy_again', 'is_opened', 'favorite', 'image_path', 'nose', 'palate', 'pairings'])]
+  'rating', 'buy_again', 'available', 'favorite', 'image_path', 'nose', 'palate', 'pairings'])]
 #[Sluggable(from: ['name', 'vintage'], to: 'slug', onUpdate: false)]
 class Wine extends Model
 {
@@ -28,7 +28,7 @@ class Wine extends Model
       'purchase_date' => 'date',
       'pairings' => 'array',
       'favorite' => 'boolean',
-      'is_opened' => 'boolean',
+      'available' => 'boolean',
       'buy_again' => 'boolean',
       'price' => 'decimal:2',
       'rating' => 'decimal:1',
