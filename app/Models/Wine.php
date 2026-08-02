@@ -6,6 +6,7 @@ use App\Enums\WineRegion;
 use App\Enums\WineType;
 use Database\Factories\WineFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\Attributes\Sluggable;
@@ -41,4 +42,114 @@ class Wine extends Model
     return 'slug';
   }
 
+  // Logique recherche, filtre, tri
+  public function scopeFilter(Builder $query, array $filters): Builder
+  {
+    // search
+    if (!empty($filters['search'])) {
+      $search = $filters['search'];
+
+      $query->where(function (Builder $query) use ($search) {
+        $query
+          ->where('name', 'like', "%{$search}%")
+          ->orWhere('appellation', 'like', "%{$search}%")
+          ->orWhere('domain', 'like', "%{$search}%")
+          ->orWhere('country', 'like', "%{$search}%")
+          ->orWhere('region', 'like', "%{$search}%")
+          ->orWhere('seller', 'like', "%{$search}%");
+      });
+    }
+
+    // millésime
+    if (!empty($filters['vintage'])) {
+      $query->where('vintage', $filters['vintage']);
+    }
+
+    // region
+    if (!empty($filters['region'])) {
+      $query->where('region', $filters['region']);
+    }
+
+    // prix
+    if (isset($filters['min_price'])) {
+      $query->where('price', '>=', $filters['min_price']);
+    }
+
+    // note
+    if (isset($filters['min_rating'])) {
+      $query->where('rating', '>=', $filters['min_rating']);
+    }
+
+    // type de vin
+    if (!empty($filters['wine_types'])) {
+      $query->whereIn('wine_type', $filters['wine_types']);
+    }
+
+    // favoris
+    if (!empty($filters['favorite'])) {
+      $query->where('favorite', true);
+    }
+
+    // disponible
+    if (!empty($filters['available'])) {
+      $query->where('available', true);
+    }
+
+    // tri
+    if (!empty($filters['sort'])) {
+      match ($filters['sort']) {
+
+        'name_asc' => $query->orderBy('name'),
+        'name_desc' => $query->orderByDesc('name'),
+
+        'wine_type_asc' => $query->orderBy('wine_type'),
+        'wine_type_desc' => $query->orderByDesc('wine_type'),
+
+        'region_asc' => $query->orderBy('region'),
+        'region_desc' => $query->orderByDesc('region'),
+
+        'vintage_asc' => $query->orderBy('vintage'),
+        'vintage_desc' => $query->orderByDesc('vintage'),
+
+        'rating_asc' => $query->orderBy('rating'),
+        'rating_desc' => $query->orderByDesc('rating'),
+
+        'price_asc' => $query->orderBy('price'),
+        'price_desc' => $query->orderByDesc('price'),
+
+        'favorite' => $query->orderByDesc('favorite'),
+
+        default => $query->latest(),
+      };
+
+    } else {
+      $query->latest();
+    }
+
+    return $query;
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

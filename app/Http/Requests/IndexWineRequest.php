@@ -6,6 +6,7 @@ use App\Enums\WineRegion;
 use App\Enums\WineType;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
 class IndexWineRequest extends FormRequest
@@ -50,7 +51,21 @@ class IndexWineRequest extends FormRequest
       'sort' => [
         'sometimes',
         'string',
-        'in:name_asc,name_desc,vintage_desc,vintage_asc,price_desc,price_asc,rating_desc,rating_asc',
+        Rule::in([
+          'name_asc',
+          'name_desc',
+          'wine_type_asc',
+          'wine_type_desc',
+          'region_asc',
+          'region_desc',
+          'vintage_asc',
+          'vintage_desc',
+          'rating_asc',
+          'rating_desc',
+          'price_asc',
+          'price_desc',
+          'favorite',
+        ]),
       ],
     ];
   }
