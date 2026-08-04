@@ -8,11 +8,13 @@ use App\Http\Requests\StoreWineRequest;
 use App\Http\Requests\UpdateWineRequest;
 use App\Http\Resources\WineResource;
 use App\Models\Wine;
+use Illuminate\Http\Response;
 
 class WineController extends Controller
 {
   /**
-   * Display a listing of the resource.
+   * Afficher la liste des vins paginée
+   * Permettre la recherche, le filtre et le tri avec le scope scopeFilter()
    */
   public function index(IndexWineRequest $request)
   {
@@ -28,17 +30,29 @@ class WineController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Créer un vin
    */
   public function store(StoreWineRequest $request): WineResource
   {
-    $wine = Wine::create($request->validated());
+    $validated = $request->validated();
+    // Upload image lors de la création
+    $imagePath = null;
+
+    if ($request->hasFile('image')) {
+      $imagePath = $request->file('image')->store('wines', 'public');
+    }
+
+
+    $wine = Wine::create([
+      ...$validated,
+      'image_path' => $imagePath,
+    ]);
 
     return new WineResource($wine);
   }
 
   /**
-   * Display the specified resource.
+   * Afficher un vin
    */
   public function show(Wine $wine): WineResource
   {
@@ -46,21 +60,49 @@ class WineController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Mettre à jour un vin
+   * @param UpdateWineRequest $request
+   * @param Wine $wine
+   * @return WineResource
    */
   public function update(UpdateWineRequest $request, Wine $wine): WineResource
   {
-    $wine->update($request->validated());
+    $validated = $request->validated();
+
+    // remplacer une image
+    if ($image = $request->file('image')) {
+
+      $wine->deleteImage();
+
+      $validated['image_path'] = $image->store('wines', 'public');
+    }
+
+    $wine->update($validated);
 
     return new WineResource($wine);
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Supprimer un vin
    */
   public function destroy(Wine $wine)
   {
+    // supprimer l'image quand on supprime un vin
+    $wine->deleteImage();
+
     $wine->delete();
+
+    return response()->noContent();
+  }
+
+  /**
+   * Supprimer une image sans supprimer le vin
+   * @param Wine $wine
+   * @return Response
+   */
+  public function destroyImage(Wine $wine): Response
+  {
+    $wine->deleteImage();
 
     return response()->noContent();
   }

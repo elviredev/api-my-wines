@@ -18,7 +18,7 @@ class UpdateProfileRequest extends FormRequest
 
   /**
    * Get the validation rules that apply to the request.
-   *
+   * Données envoyées par le client (React/Postman)
    * @return array<string, ValidationRule|array|string>
    */
   public function rules(): array
@@ -26,7 +26,7 @@ class UpdateProfileRequest extends FormRequest
     return [
       'name' => ['required', 'string', 'min:3', 'max:50'],
       'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user()->id)],
-      'avatar_path' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,avif', 'max:2048'],
+      'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,avif', 'max:2048'],
     ];
   }
 }

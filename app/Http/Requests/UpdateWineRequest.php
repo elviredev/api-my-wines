@@ -26,34 +26,34 @@ class UpdateWineRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'name' => ['required', 'string', 'max:255'],
-      'appellation' => ['required', 'string', 'max:255'],
-      'domain' => ['nullable', 'string', 'max:255'],
+      'name' => ['sometimes', 'string', 'max:255'],
+      'appellation' => ['sometimes', 'string', 'max:255'],
+      'domain' => ['sometimes', 'nullable', 'string', 'max:255'],
 
-      'country' => ['required', 'string'],
-      'region' => ['nullable', new Enum(WineRegion::class)],
-      'grape' => ['nullable', 'string', 'max:255'],
+      'country' => ['sometimes', 'string'],
+      'region' => ['sometimes', 'nullable', new Enum(WineRegion::class)],
+      'grape' => ['sometimes', 'nullable', 'string', 'max:255'],
 
-      'vintage' => ['required', 'integer', 'min:1900', 'max:' . (now()->year + 1)],
-      'wine_type' => ['required', new Enum(WineType::class)],
+      'vintage' => ['sometimes', 'integer', 'min:1900', 'max:' . (now()->year + 1)],
+      'wine_type' => ['sometimes', new Enum(WineType::class)],
 
-      'price' => ['nullable', 'numeric', 'min:0'],
-      'seller' => ['nullable', 'string', 'max:255'],
-      'purchase_date' => ['nullable', 'date'],
+      'price' => ['sometimes', 'nullable', 'numeric', 'min:0'],
+      'seller' => ['sometimes', 'nullable', 'string', 'max:255'],
+      'purchase_date' => ['sometimes', 'nullable', 'date'],
 
-      'rating' => ['nullable', 'numeric', 'between:0,20'],
+      'rating' => ['sometimes', 'nullable', 'numeric', 'between:0,20'],
 
-      'favorite' => ['required', 'boolean'],
-      'buy_again' => ['nullable', 'boolean'],
-      'available' => ['required', 'boolean'],
+      'favorite' => ['sometimes', 'boolean'],
+      'buy_again' => ['sometimes', 'nullable', 'boolean'],
+      'available' => ['sometimes', 'boolean'],
 
-      'description' => ['nullable', 'string'],
-      'nose' => ['nullable', 'string'],
-      'palate' => ['nullable', 'string'],
-      'pairings' => ['nullable', 'array'],
+      'description' => ['sometimes', 'nullable', 'string'],
+      'nose' => ['sometimes', 'nullable', 'string'],
+      'palate' => ['sometimes', 'nullable', 'string'],
+      'pairings' => ['sometimes', 'nullable', 'array'],
       'pairings.*' => ['string', 'max:255'],
 
-      'image_path' => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
+      'image' => ['sometimes', 'nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
     ];
   }
 }

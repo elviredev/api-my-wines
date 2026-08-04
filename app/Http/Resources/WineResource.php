@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Wine;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @mixin Wine
@@ -49,7 +50,8 @@ class WineResource extends JsonResource
       'palate' => $this->palate,
       'pairings' => $this->pairings,
 
-      'image_path' => $this->image_path,
+      // retourner l'URL complète
+      'image' => $this->image_path ? asset(Storage::url($this->image_path)) : null,
 
       'created_at' => $this->created_at,
       'updated_at' => $this->updated_at,

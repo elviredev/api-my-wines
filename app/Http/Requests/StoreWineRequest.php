@@ -20,7 +20,7 @@ class StoreWineRequest extends FormRequest
 
   /**
    * Get the validation rules that apply to the request.
-   *
+   * Données envoyées par le client (React/Postman)
    * @return array<string, ValidationRule|array|string>
    */
   public function rules(): array
@@ -53,7 +53,7 @@ class StoreWineRequest extends FormRequest
       'pairings' => ['nullable', 'array'],
       'pairings.*' => ['string', 'max:255'],
 
-      'image_path' => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
+      'image' => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
     ];
   }
 }

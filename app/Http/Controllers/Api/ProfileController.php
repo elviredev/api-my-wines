@@ -36,7 +36,7 @@ class ProfileController extends Controller
     $data = $request->validated();
 
     // si user change son avatar
-    if ($request->hasFile('avatar_path')) {
+    if ($request->hasFile('avatar')) {
 
       // si avatar déja présent en bdd
       if ($user->avatar_path) {
@@ -44,9 +44,9 @@ class ProfileController extends Controller
         Storage::disk('public')->delete($user->avatar_path);
       }
 
-      // sinon, stocke new avatar
+      // stocke le nouvel avatar et enregistre son chemin
       $data['avatar_path'] = $request
-        ->file('avatar_path')
+        ->file('avatar')
         ->store('avatars', 'public');
     }
 

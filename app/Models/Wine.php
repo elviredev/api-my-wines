@@ -9,11 +9,33 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\Attributes\Sluggable;
 
 
-#[Fillable(['name', 'vintage', 'grape', 'country', 'region', 'description', 'appellation', 'slug', 'domain', 'wine_type', 'price', 'seller', 'purchase_date',
-  'rating', 'buy_again', 'available', 'favorite', 'image_path', 'nose', 'palate', 'pairings'])]
+#[Fillable([
+  'name',
+  'vintage',
+  'grape',
+  'country',
+  'region',
+  'description',
+  'appellation',
+  'slug',
+  'domain',
+  'wine_type',
+  'price',
+  'seller',
+  'purchase_date',
+  'rating',
+  'buy_again',
+  'available',
+  'favorite',
+  'image_path',
+  'nose',
+  'palate',
+  'pairings',
+])]
 #[Sluggable(from: ['name', 'vintage'], to: 'slug', onUpdate: false)]
 class Wine extends Model
 {
@@ -129,7 +151,21 @@ class Wine extends Model
     return $query;
   }
 
+  // Supprimer une image du storage et de la bdd
+  public function deleteImage(): void
+  {
+    if ($this->image_path) {
+      Storage::disk('public')->delete($this->image_path);
+
+      $this->image_path = null;
+      $this->save();
+    }
+  }
+
+
 }
+
+
 
 
 

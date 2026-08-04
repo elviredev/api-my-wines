@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::apiResource('wines', WineController::class)
   ->only(['store', 'update', 'destroy']);
 
+  // Supprimer image sans supprimer le vin
+  Route::delete('/wines/{wine}/image', [WineController::class, 'destroyImage']);
+
   // Routes Profil
   Route::get('/profile', [ProfileController::class, 'show']);
   Route::put('/profile', [ProfileController::class, 'update']);
