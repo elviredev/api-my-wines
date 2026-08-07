@@ -1,0 +1,192 @@
+name: Profil
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/profile
+    metadata:
+      custom: []
+      groupName: Profil
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Retourne le profil de l'utilisateur connecté"
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: "{\r\n  \"data\": {\r\n    \"id\": 1,\r\n    \"name\": \"Totoro\",\r\n    \"email\": \"totoro@example.com\",\r\n    \"avatar\": \"/storage/avatars/xxxxxxxxx.jpg\",\r\n    \"created_at\": \"2026-08-02T15:08:28.000000Z\"\r\n  }\r\n}"
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: api/profile
+    metadata:
+      custom: []
+      groupName: Profil
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Met à jour le profil de l'utilisateur connecté."
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: Nom.
+        required: true
+        example: Totoro
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Adresse e-mail.'
+        required: true
+        example: totoro@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      avatar:
+        custom: []
+        name: avatar
+        description: "Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg"
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: Totoro
+      email: totoro@example.com
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        custom: []
+        status: 200
+        content: "{\r\n  \"message\": \"Profil mis à jour\",\r\n  \"user\": {\r\n    \"id\": 1,\r\n    \"name\": \"Totoro\",\r\n    \"email\": \"totoro@example.com\",\r\n    \"avatar\": \"/storage/avatars/xxxxxxxxx.jpg\",\r\n    \"created_at\": \"2026-08-02T15:08:28.000000Z\"\r\n  }\r\n}"
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: api/profile/password
+    metadata:
+      custom: []
+      groupName: Profil
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Modifier le mot de passe.'
+      description: "Met à jour le mot de passe de l'utilisateur connecté"
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        custom: []
+        name: current_password
+        description: 'Mot de passe actuel.'
+        required: true
+        example: password
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: 'Nouveau mot de passe actuel (8 caractères minimum).'
+        required: true
+        example: NouveauMotDePasse123!
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password_confirmation:
+        custom: []
+        name: password_confirmation
+        description: 'Confirmation du mot de passe.'
+        required: true
+        example: NouveauMotDePasse123!
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      current_password: password
+      password: NouveauMotDePasse123!
+      password_confirmation: NouveauMotDePasse123!
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

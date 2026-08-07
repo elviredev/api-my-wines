@@ -1,0 +1,645 @@
+name: Vins
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/wines
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Liste des vins.'
+      description: 'Retourne une liste paginée pouvant être filtrée et triée.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      search:
+        custom: []
+        name: search
+        description: 'Recherche par nom, appellation, domaine, région, vendeur ou pays.'
+        required: false
+        example: Bourgogne
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      'wine_types[]':
+        custom: []
+        name: 'wine_types[]'
+        description: 'Types de vin à filtrer. Valeurs possibles : Rouge, Blanc, Rosé, Champagne, Spiritueux, Autre.'
+        required: false
+        example: Rouge
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      region:
+        custom: []
+        name: region
+        description: 'Région viticole.'
+        required: false
+        example: Bordeaux
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      vintage:
+        custom: []
+        name: vintage
+        description: Millésime.
+        required: false
+        example: 2020
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      min_price:
+        custom: []
+        name: min_price
+        description: 'decimal Prix minimum.'
+        required: false
+        example: '55.50'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      min_rating:
+        custom: []
+        name: min_rating
+        description: 'decimal Note minimale (0 à 20).'
+        required: false
+        example: '15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      favorite:
+        custom: []
+        name: favorite
+        description: 'Afficher uniquement les favoris.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      available:
+        custom: []
+        name: available
+        description: 'Afficher uniquement les bouteilles disponibles.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: "Nombre d'éléments par page (8, 18, 50 ou 100)."
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: |-
+          Tri des résultats. Valeurs possibles :
+           name_asc,
+           name_desc,
+           wine_type_asc,
+           wine_type_desc,
+           region_asc,
+           region_desc,
+           vintage_asc,
+           vintage_desc,
+           rating_asc,
+           rating_desc,
+           price_asc,
+           price_desc,
+           favorite
+        required: false
+        example: name_asc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      search: Bourgogne
+      'wine_types[]': Rouge
+      region: Bordeaux
+      vintage: 2020
+      min_price: '55.50'
+      min_rating: '15'
+      favorite: true
+      available: true
+      per_page: 18
+      sort: name_asc
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: "{\r\n  \"data\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"Château Margaux\",\r\n      \"slug\": \"chateau-margaux-2018\",\r\n      \"appellation\": \"Margaux\",\r\n      \"domain\": \"Château Margaux\",\r\n      \"country\": \"France\",\r\n      \"region\": \"Bordeaux\",\r\n      \"grape\": \"Cabernet Sauvignon, Merlot\",\r\n      \"vintage\": 2018,\r\n      \"wine_type\": \"Rouge\",\r\n      \"price\": \"695.00\",\r\n      \"seller\": \"Nicolas\",\r\n      \"purchase_date\": \"2025-10-12\",\r\n      \"rating\": \"20.0\",\r\n      \"favorite\": true,\r\n      \"buy_again\": true,\r\n      \"available\": false,\r\n      \"description\": \"Premier Grand Cru Classé au potentiel exceptionnel.\",\r\n      \"nose\": \"Cassis, violette, cèdre.\",\r\n      \"palate\": \"Puissant, soyeux et très long.\",\r\n      \"pairings\": [\r\n        \"Bœuf\",\r\n        \"Gibier\",\r\n        \"Fromages affinés\"\r\n      ],\r\n      \"image\": null,\r\n      \"created_at\": \"2026-08-02T09:54:37.000000Z\",\r\n      \"updated_at\": \"2026-08-02T09:54:37.000000Z\",\r\n      \"links\": {\r\n        \"self\": \"http://api-my-wines.test/api/wines/chateau-margaux-2018\"\r\n      }\r\n      {\r\n        \"id\": 2,\r\n        \"name\": \"Viré Clessé\",\r\n        \"...\": \"...\"\r\n      }\r\n    }\r\n  ],\r\n  \"links\": {\r\n    \"first\": \"...\",\r\n    \"last\": \"...\",\r\n    \"prev\": null,\r\n    \"next\": \"...\"\r\n  },\r\n  \"meta\": {\r\n    \"current_page\": 1,\r\n    \"per_page\": 18,\r\n    \"total\": 125\r\n  }\r\n}\r\n"
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/wines/{slug}'
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Détail d'un vin"
+      description: "Retourne les informations d'un vin."
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the wine.'
+        required: true
+        example: la-charnivole-2023
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: la-charnivole-2023
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"name":"La Charnivole","slug":"la-charnivole-2023","appellation":"AOP Menetou Salon","domain":"Domaine du Grand Brussy","country":"France","region":"Val de Loire","grape":"Sauvignon Blanc","vintage":2023,"wine_type":"Blanc","price":"14.50","seller":"Vinatis","purchase_date":"2026-03-10","rating":"17.0","favorite":true,"buy_again":true,"available":false,"description":"Bouche tendre, souple, d''une grande fra\u00eecheur. S''accorde avec la volaille, le poisson, les crustac\u00e9s. Nez frinad aux accents de fruits exotiques, de p\u00eache, de fleurs des champs. Tr\u00e8s bon \u00e0 l''ap\u00e9ro.","nose":"Friand, aux accents de fruits exotiques, de p\u00eache, de fleurs des champs.","palate":"Tendre, souple, d''une grande fra\u00eecheur.","pairings":["Poisson","Viande rouge","Fromage","Dessert"],"image":"http:\/\/localhost:8000\/storage\/wines\/2mOhNdST0u7jKDlo8xzxgYzy4dHrqR8gGQZxKvKM.jpg","created_at":"2026-08-02T09:54:37.000000Z","updated_at":"2026-08-04T16:26:15.000000Z","links":{"self":"http:\/\/localhost:8000\/api\/wines\/la-charnivole-2023"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/wines
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajoute un vin à la collection.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Nom du vin.'
+        required: true
+        example: 'Château Margaux'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      appellation:
+        custom: []
+        name: appellation
+        description: Appellation.
+        required: true
+        example: Margaux
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      domain:
+        custom: []
+        name: domain
+        description: Domaine.
+        required: false
+        example: 'Château Margaux'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      grape:
+        custom: []
+        name: grape
+        description: Cépage.
+        required: false
+        example: 'Sauvignon blanc'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      country:
+        custom: []
+        name: country
+        description: Pays.
+        required: false
+        example: France
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      region:
+        custom: []
+        name: region
+        description: 'Région viticole.'
+        required: false
+        example: Bordeaux
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      vintage:
+        custom: []
+        name: vintage
+        description: Millésime.
+        required: false
+        example: 2020
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      wine_type:
+        custom: []
+        name: wine_type
+        description: 'Type de vin.'
+        required: false
+        example: Rouge
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: "Prix d'achat."
+        required: false
+        example: 39.9
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      seller:
+        custom: []
+        name: seller
+        description: Vendeur.
+        required: false
+        example: Nicolas
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      purchase_date:
+        custom: []
+        name: purchase_date
+        description: "Date d'achat."
+        required: false
+        example: '2026-07-15'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      rating:
+        custom: []
+        name: rating
+        description: 'Note sur 20.'
+        required: false
+        example: 18.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      favorite:
+        custom: []
+        name: favorite
+        description: 'Ajouter aux favoris.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      buy_again:
+        custom: []
+        name: buy_again
+        description: 'Souhaite en racheter.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      available:
+        custom: []
+        name: available
+        description: 'Bouteille présente en cave.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      nose:
+        custom: []
+        name: nose
+        description: 'Description du nez.'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      palate:
+        custom: []
+        name: palate
+        description: 'Description en bouche.'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Commentaires personnels.'
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pairings:
+        custom: []
+        name: pairings
+        description: 'Accords mets et vins.'
+        required: false
+        example:
+          - architecto
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'Photo de la bouteille.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Château Margaux'
+      appellation: Margaux
+      domain: 'Château Margaux'
+      grape: 'Sauvignon blanc'
+      country: France
+      region: Bordeaux
+      vintage: 2020
+      wine_type: Rouge
+      price: 39.9
+      seller: Nicolas
+      purchase_date: '2026-07-15'
+      rating: 18.0
+      favorite: true
+      buy_again: true
+      available: false
+      nose: architecto
+      palate: architecto
+      description: 'Eius et animi quos velit et.'
+      pairings:
+        - architecto
+    fileParameters:
+      image: null
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/wines/{slug}'
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Modifie un vin existant.'
+      description: "Les paramètres sont identiques à ceux utilisés lors de la création d'un vin."
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the wine.'
+        required: true
+        example: la-charnivole-2023
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: la-charnivole-2023
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/wines/{slug}'
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprime un vin de la collection.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the wine.'
+        required: true
+        example: la-charnivole-2023
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: la-charnivole-2023
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/wines/{wine_slug}/image'
+    metadata:
+      custom: []
+      groupName: Vins
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Supprime la photo d'un vin"
+      description: 'Supprime uniquement la photo associée au vin sans supprimer la fiche du vin.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      wine_slug:
+        custom: []
+        name: wine_slug
+        description: 'The slug of the wine.'
+        required: true
+        example: la-charnivole-2023
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      wine_slug: la-charnivole-2023
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

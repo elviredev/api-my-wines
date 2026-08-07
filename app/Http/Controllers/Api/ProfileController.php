@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Storage;
 class ProfileController extends Controller
 {
   /**
-   * Affiche l'utilisateur connecté
+   * Retourne le profil de l'utilisateur connecté
+   *
+   * @group Profil
+   *
+   * @responseFile storage/app/scribe/profile.show.json
+   *
    * @return UserResource
    */
   public function show()
@@ -24,7 +29,16 @@ class ProfileController extends Controller
   }
 
   /**
-   * Modifier le profil
+   * Met à jour le profil de l'utilisateur connecté.
+   *
+   * @group Profil
+   *
+   * @bodyParam name string required Nom. Example: Totoro
+   * @bodyParam email string required Adresse e-mail. Example: totoro@example.com
+   * @bodyParam avatar file Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg
+   *
+   * @responseFile storage/app/scribe/profile.update.json
+   *
    * @param UpdateProfileRequest $request
    * @return JsonResponse
    */
@@ -59,7 +73,17 @@ class ProfileController extends Controller
   }
 
   /**
-   * Modifier le mot de passe
+   * Modifier le mot de passe.
+   *
+   * Met à jour le mot de passe de l'utilisateur connecté
+   *
+   * @group Profil
+   *
+   * @bodyParam current_password string required Mot de passe actuel. Example: password
+   * @bodyParam password string required Nouveau mot de passe actuel (8 caractères minimum). Example: NouveauMotDePasse123!
+   * @bodyParam password_confirmation string required Confirmation du mot de passe. Example: NouveauMotDePasse123!
+   *
+   *
    * @param UpdatePasswordRequest $request
    * @return JsonResponse
    */
