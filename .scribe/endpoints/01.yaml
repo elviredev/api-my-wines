@@ -125,7 +125,9 @@ endpoints:
         custom: []
         name: sort
         description: |-
-          Tri des résultats. Valeurs possibles :
+          Tri des résultats.
+
+          Valeurs possibles :
            name_asc,
            name_desc,
            wine_type_asc,
@@ -137,10 +139,9 @@ endpoints:
            rating_asc,
            rating_desc,
            price_asc,
-           price_desc,
-           favorite
+           price_desc
         required: false
-        example: name_asc
+        example: 'name_asc, wine_type_desc'
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -156,7 +157,7 @@ endpoints:
       favorite: true
       available: true
       per_page: 18
-      sort: name_asc
+      sort: 'name_asc, wine_type_desc'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []

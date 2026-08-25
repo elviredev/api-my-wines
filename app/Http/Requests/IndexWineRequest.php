@@ -64,7 +64,6 @@ class IndexWineRequest extends FormRequest
           'rating_desc',
           'price_asc',
           'price_desc',
-          'favorite',
         ]),
       ],
     ];

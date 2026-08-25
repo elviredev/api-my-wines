@@ -137,7 +137,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 7, 2026</li>
+        <li>Last updated: August 25, 2026</li>
     </ul>
 </div>
 
@@ -780,7 +780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Totoro"\
     --form "email=totoro@example.com"\
-    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php39DD.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php29F9.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -943,7 +943,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php39DD.tmp</code></p>
+<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php29F9.tmp</code></p>
         </div>
         </form>
 
@@ -1139,7 +1139,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/wines?search=Bourgogne&amp;wine_types%5B%5D=Rouge&amp;region=Bordeaux&amp;vintage=2020&amp;min_price=55.50&amp;min_rating=15&amp;favorite=1&amp;available=1&amp;per_page=18&amp;sort=name_asc" \
+    --get "http://localhost:8000/api/wines?search=Bourgogne&amp;wine_types%5B%5D=Rouge&amp;region=Bordeaux&amp;vintage=2020&amp;min_price=55.50&amp;min_rating=15&amp;favorite=1&amp;available=1&amp;per_page=18&amp;sort=name_asc%2C+wine_type_desc" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1159,7 +1159,7 @@ const params = {
     "favorite": "1",
     "available": "1",
     "per_page": "18",
-    "sort": "name_asc",
+    "sort": "name_asc, wine_type_desc",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1446,10 +1446,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-wines"
-               value="name_asc"
+               value="name_asc, wine_type_desc"
                data-component="query">
     <br>
-<p>Tri des résultats. Valeurs possibles :
+<p>Tri des résultats.</p>
+<p>Valeurs possibles :
 name_asc,
 name_desc,
 wine_type_asc,
@@ -1461,8 +1462,7 @@ vintage_desc,
 rating_asc,
 rating_desc,
 price_asc,
-price_desc,
-favorite Example: <code>name_asc</code></p>
+price_desc Example: <code>name_asc, wine_type_desc</code></p>
             </div>
                 </form>
 
@@ -1676,7 +1676,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "palate=architecto"\
     --form "description=Eius et animi quos velit et."\
     --form "pairings[]=architecto"\
-    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php39BD.tmp" </code></pre></div>
+    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php29B9.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2076,7 +2076,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php39BD.tmp</code></p>
+<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php29B9.tmp</code></p>
         </div>
         </form>
 

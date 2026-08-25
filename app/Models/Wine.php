@@ -139,8 +139,6 @@ class Wine extends Model
         'price_asc' => $query->orderBy('price'),
         'price_desc' => $query->orderByDesc('price'),
 
-        'favorite' => $query->orderByDesc('favorite'),
-
         default => $query->latest(),
       };
 

@@ -30,7 +30,9 @@ class WineController extends Controller
    * @queryParam favorite boolean Afficher uniquement les favoris. Example: true
    * @queryParam available boolean Afficher uniquement les bouteilles disponibles. Example: true
    * @queryParam per_page integer Nombre d'éléments par page (8, 18, 50 ou 100). Example: 18
-   * @queryParam sort string Tri des résultats. Valeurs possibles :
+   * @queryParam sort string Tri des résultats.
+   *
+   * Valeurs possibles :
    *  name_asc,
    *  name_desc,
    *  wine_type_asc,
@@ -42,10 +44,9 @@ class WineController extends Controller
    *  rating_asc,
    *  rating_desc,
    *  price_asc,
-   *  price_desc,
-   *  favorite
+   *  price_desc
    *
-   *  Example: name_asc
+   * Example: name_asc, wine_type_desc
    *
    * @responseFile storage/app/scribe/wines.index.json
    */

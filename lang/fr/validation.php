@@ -231,6 +231,7 @@ return [
     "contents" => "contenus",
     "country" => "pays",
     "countries" => "pays",
+    'current_password' => 'mot de passe actuel',
     "customer" => "client",
     "customers" => "clients",
     "day" => "jour",
