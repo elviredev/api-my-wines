@@ -137,7 +137,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 25, 2026</li>
+        <li>Last updated: September 10, 2026</li>
     </ul>
 </div>
 
@@ -780,7 +780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Totoro"\
     --form "email=totoro@example.com"\
-    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php29F9.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php6BF6.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -943,7 +943,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php29F9.tmp</code></p>
+<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6BF6.tmp</code></p>
         </div>
         </form>
 
@@ -1676,7 +1676,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "palate=architecto"\
     --form "description=Eius et animi quos velit et."\
     --form "pairings[]=architecto"\
-    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php29B9.tmp" </code></pre></div>
+    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php6BB6.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1833,7 +1833,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>domain</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="domain"                data-endpoint="POSTapi-wines"
@@ -1857,7 +1857,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="POSTapi-wines"
@@ -1881,7 +1881,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>vintage</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="vintage"                data-endpoint="POSTapi-wines"
@@ -1893,7 +1893,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>wine_type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="wine_type"                data-endpoint="POSTapi-wines"
@@ -1953,7 +1953,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>favorite</code></b>&nbsp;&nbsp;
 <small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <label data-endpoint="POSTapi-wines" style="display: none">
             <input type="radio" name="favorite"
@@ -1975,7 +1975,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>buy_again</code></b>&nbsp;&nbsp;
 <small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <label data-endpoint="POSTapi-wines" style="display: none">
             <input type="radio" name="buy_again"
@@ -1997,7 +1997,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>available</code></b>&nbsp;&nbsp;
 <small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <label data-endpoint="POSTapi-wines" style="display: none">
             <input type="radio" name="available"
@@ -2076,7 +2076,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php29B9.tmp</code></p>
+<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6BB6.tmp</code></p>
         </div>
         </form>
 

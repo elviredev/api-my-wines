@@ -70,19 +70,19 @@ class WineController extends Controller
    *
    * @bodyParam name string required Nom du vin. Example: Château Margaux
    * @bodyParam appellation string required Appellation. Example: Margaux
-   * @bodyParam domain string Domaine. Example: Château Margaux
+   * @bodyParam domain string required Domaine. Example: Château Margaux
    * @bodyParam grape string Cépage. Example: Sauvignon blanc
-   * @bodyParam country string Pays. Example: France
+   * @bodyParam country string required Pays. Example: France
    * @bodyParam region string Région viticole. Example: Bordeaux
-   * @bodyParam vintage integer Millésime. Example: 2020
-   * @bodyParam wine_type string Type de vin. Example: Rouge
+   * @bodyParam vintage integer required Millésime. Example: 2020
+   * @bodyParam wine_type string required Type de vin. Example: Rouge
    * @bodyParam price number Prix d'achat. Example: 39.90
    * @bodyParam seller string Vendeur. Example: Nicolas
    * @bodyParam purchase_date date Date d'achat. Example: 2026-07-15
    * @bodyParam rating number Note sur 20. Example: 18
-   * @bodyParam favorite boolean Ajouter aux favoris. Example: true
-   * @bodyParam buy_again boolean Souhaite en racheter. Example: true
-   * @bodyParam available boolean Bouteille présente en cave. Example: false
+   * @bodyParam favorite boolean required Ajouter aux favoris. Example: true
+   * @bodyParam buy_again boolean required Souhaite en racheter. Example: true
+   * @bodyParam available boolean required Bouteille présente en cave. Example: false
    * @bodyParam nose string Description du nez.
    * @bodyParam palate string Description en bouche.
    * @bodyParam description string Commentaires personnels.

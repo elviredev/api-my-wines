@@ -28,7 +28,7 @@ class StoreWineRequest extends FormRequest
     return [
       'name' => ['required', 'string', 'max:255'],
       'appellation' => ['required', 'string', 'max:255'],
-      'domain' => ['nullable', 'string', 'max:255'],
+      'domain' => ['required', 'string', 'max:255'],
 
       'country' => ['required', 'string'],
       'region' => ['nullable', new Enum(WineRegion::class)],
@@ -44,7 +44,7 @@ class StoreWineRequest extends FormRequest
       'rating' => ['nullable', 'numeric', 'between:0,20'],
 
       'favorite' => ['required', 'boolean'],
-      'buy_again' => ['nullable', 'boolean'],
+      'buy_again' => ['required', 'boolean'],
       'available' => ['required', 'boolean'],
 
       'description' => ['nullable', 'string'],
@@ -54,6 +54,32 @@ class StoreWineRequest extends FormRequest
       'pairings.*' => ['string', 'max:255'],
 
       'image' => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
+    ];
+  }
+
+  public function attributes(): array
+  {
+    return [
+      'name' => 'nom',
+      'appellation' => 'appellation',
+      'domain' => 'domaine',
+      'country' => 'pays',
+      'region' => 'région',
+      'grape' => 'cépage',
+      'vintage' => 'millésime',
+      'wine_type' => 'type de vin',
+      'price' => 'prix',
+      'seller' => 'vendeur',
+      'purchase_date' => "date d'achat",
+      'rating' => 'note',
+      'favorite' => 'vin préféré',
+      'buy_again' => 'à racheter',
+      'available' => 'disponible',
+      'description' => 'description',
+      'nose' => 'nez',
+      'palate' => 'bouche',
+      'pairings' => 'accords',
+      'image' => 'image',
     ];
   }
 }

@@ -56,4 +56,30 @@ class UpdateWineRequest extends FormRequest
       'image' => ['sometimes', 'nullable', 'file', 'image', 'mimes:jpeg,png,jpg,webp,avif', 'max:2048'],
     ];
   }
+
+  public function attributes(): array
+  {
+    return [
+      'name' => 'nom',
+      'appellation' => 'appellation',
+      'domain' => 'domaine',
+      'country' => 'pays',
+      'region' => 'région',
+      'grape' => 'cépage',
+      'vintage' => 'millésime',
+      'wine_type' => 'type de vin',
+      'price' => 'prix',
+      'seller' => 'vendeur',
+      'purchase_date' => "date d'achat",
+      'rating' => 'note',
+      'favorite' => 'vin préféré',
+      'buy_again' => 'à racheter',
+      'available' => 'disponible',
+      'description' => 'description',
+      'nose' => 'nez',
+      'palate' => 'bouche',
+      'pairings' => 'accords',
+      'image' => 'image',
+    ];
+  }
 }

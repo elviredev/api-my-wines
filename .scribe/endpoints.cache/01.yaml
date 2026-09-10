@@ -277,7 +277,7 @@ endpoints:
         custom: []
         name: domain
         description: Domaine.
-        required: false
+        required: true
         example: 'Château Margaux'
         type: string
         enumValues: []
@@ -299,7 +299,7 @@ endpoints:
         custom: []
         name: country
         description: Pays.
-        required: false
+        required: true
         example: France
         type: string
         enumValues: []
@@ -321,7 +321,7 @@ endpoints:
         custom: []
         name: vintage
         description: Millésime.
-        required: false
+        required: true
         example: 2020
         type: integer
         enumValues: []
@@ -332,7 +332,7 @@ endpoints:
         custom: []
         name: wine_type
         description: 'Type de vin.'
-        required: false
+        required: true
         example: Rouge
         type: string
         enumValues: []
@@ -387,7 +387,7 @@ endpoints:
         custom: []
         name: favorite
         description: 'Ajouter aux favoris.'
-        required: false
+        required: true
         example: true
         type: boolean
         enumValues: []
@@ -398,7 +398,7 @@ endpoints:
         custom: []
         name: buy_again
         description: 'Souhaite en racheter.'
-        required: false
+        required: true
         example: true
         type: boolean
         enumValues: []
@@ -409,7 +409,7 @@ endpoints:
         custom: []
         name: available
         description: 'Bouteille présente en cave.'
-        required: false
+        required: true
         example: false
         type: boolean
         enumValues: []
