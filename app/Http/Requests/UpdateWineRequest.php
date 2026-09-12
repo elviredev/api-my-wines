@@ -28,7 +28,7 @@ class UpdateWineRequest extends FormRequest
     return [
       'name' => ['sometimes', 'string', 'max:255'],
       'appellation' => ['sometimes', 'string', 'max:255'],
-      'domain' => ['sometimes', 'nullable', 'string', 'max:255'],
+      'domain' => ['sometimes', 'string', 'max:255'],
 
       'country' => ['sometimes', 'string'],
       'region' => ['sometimes', 'nullable', new Enum(WineRegion::class)],
@@ -44,7 +44,7 @@ class UpdateWineRequest extends FormRequest
       'rating' => ['sometimes', 'nullable', 'numeric', 'between:0,20'],
 
       'favorite' => ['sometimes', 'boolean'],
-      'buy_again' => ['sometimes', 'nullable', 'boolean'],
+      'buy_again' => ['sometimes', 'boolean'],
       'available' => ['sometimes', 'boolean'],
 
       'description' => ['sometimes', 'nullable', 'string'],
