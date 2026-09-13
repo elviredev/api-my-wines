@@ -137,7 +137,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 10, 2026</li>
+        <li>Last updated: September 13, 2026</li>
     </ul>
 </div>
 
@@ -780,7 +780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Totoro"\
     --form "email=totoro@example.com"\
-    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php6BF6.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php6264.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -943,7 +943,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6BF6.tmp</code></p>
+<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6264.tmp</code></p>
         </div>
         </form>
 
@@ -1676,7 +1676,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "palate=architecto"\
     --form "description=Eius et animi quos velit et."\
     --form "pairings[]=architecto"\
-    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php6BB6.tmp" </code></pre></div>
+    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php6234.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2076,7 +2076,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6BB6.tmp</code></p>
+<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6234.tmp</code></p>
         </div>
         </form>
 
@@ -2263,7 +2263,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-wines--slug-">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-wines--slug-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-wines--slug-"></span>:
@@ -2402,7 +2408,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-wines--wine_slug--image">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-wines--wine_slug--image" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-wines--wine_slug--image"></span>:

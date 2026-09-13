@@ -155,6 +155,8 @@ class WineController extends Controller
    * Supprime un vin de la collection.
    *
    * @group Vins
+   *
+   * @response 204
    */
   public function destroy(Wine $wine)
   {
@@ -173,8 +175,7 @@ class WineController extends Controller
    *
    * @group Vins
    *
-   * @param Wine $wine
-   * @return Response
+   * @response 204
    */
   public function destroyImage(Wine $wine): Response
   {
