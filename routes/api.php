@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\WineController;
 use Illuminate\Support\Facades\Route;
+use function Pest\Laravel\get;
 
 // Login
 Route::post('/login', [AuthController::class, 'login']);
@@ -14,6 +16,9 @@ Route::apiResource('wines', WineController::class)
 
 // Routes protégées
 Route::middleware('auth:sanctum')->group(function () {
+
+  // Dashboard
+  Route::get('/dashboard', [DashboardController::class, 'index']);
 
   // Logout, Me
   Route::post('/logout', [AuthController::class, 'logout']);

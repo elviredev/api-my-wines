@@ -103,6 +103,16 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-tableau-de-bord" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="tableau-de-bord">
+                    <a href="#tableau-de-bord">Tableau de bord</a>
+                </li>
+                                    <ul id="tocify-subheader-tableau-de-bord" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="tableau-de-bord-GETapi-dashboard">
+                                <a href="#tableau-de-bord-GETapi-dashboard">Tableau de bord</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-vins" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="vins">
                     <a href="#vins">Vins</a>
@@ -137,7 +147,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 13, 2026</li>
+        <li>Last updated: September 14, 2026</li>
     </ul>
 </div>
 
@@ -780,7 +790,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Totoro"\
     --form "email=totoro@example.com"\
-    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php6264.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\isro3480\AppData\Local\Temp\php3D8C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -943,7 +953,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6264.tmp</code></p>
+<p>Avatar de l'utilisateur (jpg, jpeg, png, webp, avif). Exemple : avatar.jpg Example: <code>C:\Users\isro3480\AppData\Local\Temp\php3D8C.tmp</code></p>
         </div>
         </form>
 
@@ -1121,6 +1131,183 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Confirmation du mot de passe. Example: <code>NouveauMotDePasse123!</code></p>
         </div>
         </form>
+
+                <h1 id="tableau-de-bord">Tableau de bord</h1>
+
+    
+
+                                <h2 id="tableau-de-bord-GETapi-dashboard">Tableau de bord</h2>
+
+<p>
+<small class="badge badge-darkred">Autorisation requise</small>
+</p>
+
+<p>Retourne les statistiques et les principales informations
+concernant les vins enregistrés.</p>
+
+<span id="example-requests-GETapi-dashboard">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/dashboard" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/dashboard"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-dashboard">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;stats&quot;: {
+            &quot;wines&quot;: 62,
+            &quot;favorites&quot;: 14,
+            &quot;average_rating&quot;: 14.8,
+            &quot;wine_types&quot;: 6,
+            &quot;regions&quot;: 12,
+            &quot;value&quot;: 1245.5
+        },
+        &quot;distribution&quot;: [
+            {
+                &quot;name&quot;: &quot;Rouge&quot;,
+                &quot;value&quot;: 20
+            },
+            {
+                &quot;name&quot;: &quot;Blanc&quot;,
+                &quot;value&quot;: 18
+            },
+            {
+                &quot;name&quot;: &quot;Ros&eacute;&quot;,
+                &quot;value&quot;: 10
+            },
+            {
+                &quot;name&quot;: &quot;Champagne&quot;,
+                &quot;value&quot;: 8
+            }
+        ],
+        &quot;infos&quot;: {
+            &quot;best_wine&quot;: &quot;Clos Saint-Martin (2020)&quot;,
+            &quot;main_grape&quot;: &quot;Pinot Noir&quot;,
+            &quot;favorite_region&quot;: &quot;Bourgogne&quot;,
+            &quot;oldest_vintage&quot;: 1998,
+            &quot;favorites&quot;: 14,
+            &quot;average_price&quot;: 20,
+            &quot;most_expensive_wine&quot;: &quot;Ch&acirc;teau Margaux (2019)&quot;,
+            &quot;last_added&quot;: &quot;Sancerre (2023)&quot;
+        }
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-dashboard" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-dashboard"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-dashboard"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-dashboard" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-dashboard">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-dashboard" data-method="GET"
+      data-path="api/dashboard"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-dashboard', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-dashboard"
+                    onclick="tryItOut('GETapi-dashboard');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-dashboard"
+                    onclick="cancelTryOut('GETapi-dashboard');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-dashboard"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/dashboard</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-dashboard"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-dashboard"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-dashboard"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="vins">Vins</h1>
 
@@ -1676,7 +1863,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "palate=architecto"\
     --form "description=Eius et animi quos velit et."\
     --form "pairings[]=architecto"\
-    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php6234.tmp" </code></pre></div>
+    --form "image=@C:\Users\isro3480\AppData\Local\Temp\php3D6C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2076,7 +2263,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php6234.tmp</code></p>
+<p>Photo de la bouteille. Example: <code>C:\Users\isro3480\AppData\Local\Temp\php3D6C.tmp</code></p>
         </div>
         </form>
 
